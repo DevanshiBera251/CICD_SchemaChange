@@ -6,5 +6,5 @@ create or replace function pi_udf()
 
 create or replace function i_udf()
   returns int
-  as '1::INT';
+  as '2::INT';
 
