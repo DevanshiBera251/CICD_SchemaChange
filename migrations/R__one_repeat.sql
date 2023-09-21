@@ -5,7 +5,7 @@ create or replace function pi_udf()
   as '3.14::FLOAT';
 
 CREATE PROCEDURE SelectAllEmployees
-AS
+IS
 BEGIN
 SELECT * FROM EMPLOYEE
 END;
