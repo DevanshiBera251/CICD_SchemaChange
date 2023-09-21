@@ -7,6 +7,6 @@ create or replace function pi_udf()
 CREATE PROCEDURE SelectAllEmployees
 AS
 BEGIN
-SELECT * FROM EMPLOYEES
+SELECT * FROM EMPLOYEE
 END;
 
