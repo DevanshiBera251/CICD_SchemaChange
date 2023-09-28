@@ -10,22 +10,24 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-   inputs:
-      name:
-        type: choice
-        description: Environment to be deployed
-        options: 
-        - DEV
-        - QA
-        - PROD
-      message:
-        required: true
+    inputs:
+      username:
+        description: "give me your username"
+        default: "DEV"
+        type: "string"
 
-jobs:
-  deploy-snowflake-changes-job:
-    runs-on: ubuntu-latest
-
-    steps:
+jobs:   
+    job2:
+     runs-on: ubuntu-latest
+     steps:
+      - name: User input
+        run: 
+         echo The username is ${{ inputs.username }}
+              
+    deploy-snowflake-changes-job:
+      runs-on: ubuntu-latest
+    
+      steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -41,7 +43,7 @@ jobs:
           SF_USERNAME: ${{ secrets.SF_USERNAME }}
           SF_ROLE: ${{ secrets.SF_ROLE }}
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
-          SF_DATABASE: ${{ github.event.inputs.name }}
+          SF_DATABASE: ${{ inputs.username }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
           
         run: |
