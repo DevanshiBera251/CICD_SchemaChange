@@ -17,7 +17,7 @@ on:
         type: "string"
 
 jobs:   
-    job2:
+    User-Input:
      runs-on: ubuntu-latest
      steps:
       - name: User input
