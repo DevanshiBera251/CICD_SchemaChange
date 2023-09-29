@@ -1,3 +1,3 @@
 USE SCHEMA PUBLIC;
 
-CREATE VIEW EMP as select * from Hello_world;
+CREATE VIEW EMP_vv as select * from Hello_world;
