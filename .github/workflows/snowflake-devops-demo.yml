@@ -13,13 +13,8 @@ on:
     inputs:
       environment:
         description: "give me your environment"
-        default: "DEV"
-        type: "string"
+        type: environment
         required: true
-        options:
-          - DEV
-          - QA
-          - PROD
 
 jobs:   
     User-Input:
