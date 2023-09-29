@@ -15,6 +15,7 @@ on:
         description: "give me your username"
         default: "DEV"
         type: "string"
+        required: true
 
 jobs:   
     User-Input:
