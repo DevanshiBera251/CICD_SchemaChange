@@ -11,11 +11,15 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-      username:
-        description: "give me your username"
+      environment:
+        description: "give me your environment"
         default: "DEV"
-        type: "string"
+        type: environment
         required: true
+        options:
+         - DEV
+         - QA
+         - PROD
 
 jobs:   
     User-Input:
@@ -23,7 +27,7 @@ jobs:
      steps:
       - name: User input
         run: 
-         echo The username is ${{ inputs.username }}
+         echo The environment is ${{ inputs.environment }}
               
     deploy-snowflake-changes-job:
       runs-on: ubuntu-latest
@@ -44,7 +48,7 @@ jobs:
           SF_USERNAME: ${{ secrets.SF_USERNAME }}
           SF_ROLE: ${{ secrets.SF_ROLE }}
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
-          SF_DATABASE: ${{ github.event.inputs.username }}
+          SF_DATABASE: ${{ github.event.inputs.environment }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
           
         run: |
