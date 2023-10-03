@@ -13,7 +13,6 @@ on:
     inputs:
       environment:
         description: "give me your environment"
-        type: environment
         required: true
         default: "DEV"
 
