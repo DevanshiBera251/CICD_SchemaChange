@@ -4,7 +4,8 @@ name: snowflake-devops-demo
 on:
   push:
     branches:
-      - main
+      - "**"
+      - "!main"
     paths:
       - 'migrations/**'
 
@@ -15,6 +16,7 @@ on:
         description: "give me your environment"
         type: environment
         required: true
+        default: "DEV"
 
 jobs:   
     User-Input:
