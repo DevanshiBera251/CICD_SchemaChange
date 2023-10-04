@@ -12,7 +12,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
 jobs:              
-    deploy-snowflake-changes-job:
+    deploy-snowflake-changes-job-DEV:
       runs-on: ubuntu-latest
     
       steps:
@@ -42,15 +42,4 @@ jobs:
           
           echo "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
-    
-   # QAPromotion:
-    #     runs-on: ubuntu-latest
-     #    steps:
-      #   - uses: actions/checkout@v3
-       #    with:
-        #    ref: QA
-         
-         #- name: Create Pull Request
-          # uses: actions/create-pull-request@v5
-           #with:
-            # branch: DEV
+
