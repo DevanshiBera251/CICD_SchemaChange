@@ -2,28 +2,16 @@ name: snowflake-devops-demo
 
 # Controls when the action will run. 
 on:
-  push:
-    branches:
-      - main
-    paths:
+  pull_request:
+   branches:
+    - "DEV"
+   types: [closed]
+   
+   paths:
       - 'migrations/**'
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: "give me your environment"
-        type: environment
-        required: true
-
-jobs:   
-    User-Input:
-     runs-on: ubuntu-latest
-     steps:
-      - name: User input
-        run: 
-         echo The environment is ${{ github.event.inputs.environment }}
-              
+jobs:              
     deploy-snowflake-changes-job:
       runs-on: ubuntu-latest
     
@@ -43,7 +31,7 @@ jobs:
           SF_USERNAME: ${{ secrets.SF_USERNAME }}
           SF_ROLE: ${{ secrets.SF_ROLE }}
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
-          SF_DATABASE: ${{ github.event.inputs.environment }}
+          SF_DATABASE: ${{ secrets.SF_DEV }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
           
         run: |
