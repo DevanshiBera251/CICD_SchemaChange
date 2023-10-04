@@ -5,5 +5,5 @@ create or replace function pi_udf()
   as '3.18::FLOAT';
 
   create or replace function i_udf()
-  returns float
+  returns int
   as '2::INT';
