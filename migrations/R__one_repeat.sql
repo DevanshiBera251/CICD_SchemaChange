@@ -10,4 +10,4 @@ create or replace function pi_udf()
 
 create or replace function Test_udf()
   returns int
-  as '9::INT';
+  as '2::INT';
