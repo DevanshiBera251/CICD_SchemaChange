@@ -9,7 +9,7 @@ create or replace function second_udf()
   as '3.14::FLOAT';
 
 USE SCHEMA PUBLIC;
-create TABLE TESTING 
+create TABLE TESTING1
 (
 	FIRST_NAME VARCHAR(16777216),
 	LAST_NAME VARCHAR(16777216)
