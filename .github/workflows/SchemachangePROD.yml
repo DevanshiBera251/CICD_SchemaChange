@@ -1,10 +1,10 @@
-name: snowflake-devops-demo-DEV
+name: snowflake-devops-demo-PROD
 
 # Controls when the action will run. 
 on:
   pull_request:
    branches:
-    - "DEV"
+    - "PROD"
    types: [closed]
    
    paths:
@@ -12,7 +12,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
 jobs:              
-    deploy-snowflake-changes-job-DEV:
+    deploy-snowflake-changes-job:
       runs-on: ubuntu-latest
     
       steps:
@@ -31,7 +31,7 @@ jobs:
           SF_USERNAME: ${{ secrets.SF_USERNAME }}
           SF_ROLE: ${{ secrets.SF_ROLE }}
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
-          SF_DATABASE: ${{ secrets.SF_DEV }}
+          SF_DATABASE: ${{ secrets.SF_PROD }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
           
         run: |
@@ -42,4 +42,3 @@ jobs:
           
           echo "Step 2: Running schemachange"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
-
