@@ -1,0 +1,1 @@
+create or replace sequence DEV.AMBYINT_COM_SCHEMA.PLATFORM_EVENT_FACT_SEQ start with 1 increment by 1 order;
