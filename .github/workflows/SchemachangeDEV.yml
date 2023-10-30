@@ -2,11 +2,9 @@ name: snowflake-devops-demo-DEV
 
 # Controls when the action will run. 
 on:
-  pull_request:
+ push:
    branches:
-    - "DEV"
-   types: [closed]
-   
+     - "DEV"   
    paths:
       - 'migrations/**'
 
