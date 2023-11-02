@@ -1,0 +1,1 @@
+create or replace stream DEV.AMBYINT_COM_SCHEMA.PLATFORM_EVENT_STREAM on table PLATFORM_EVENT_STAGE append_only = true;
