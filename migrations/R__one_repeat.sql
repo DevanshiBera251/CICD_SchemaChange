@@ -6,4 +6,4 @@ create or replace function pi_udf()
 
 create or replace function second_udf()
   returns float
-  as '3.15::FLOAT';
+  as '3.18::FLOAT';
