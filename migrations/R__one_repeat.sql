@@ -5,5 +5,4 @@ USE SCHEMA PUBLIC;
 
 create or replace function second_udf()
   returns float
-  as '3.11::FLOAT';
-  
+  as '3.11::FLOAT';  
