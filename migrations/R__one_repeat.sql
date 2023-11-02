@@ -5,4 +5,4 @@ CREATE or replace view PLATFORM_EVENT_FACT_V_VIEW_NEW as select * from Hello_wor
 
 create or replace function second_udf()
   returns float
-  as '3.19::FLOAT';
+  as '3.14::FLOAT';
