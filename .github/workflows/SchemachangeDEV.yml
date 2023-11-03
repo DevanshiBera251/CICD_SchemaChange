@@ -32,9 +32,7 @@ jobs:
           SF_ROLE: ${{ secrets.SF_ROLE }}
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.SF_DEV }}
-          SNOWFLAKE_PASSWORD: "TESTING"
-
-         # SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
           
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
