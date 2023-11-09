@@ -6,3 +6,11 @@ USE SCHEMA PUBLIC;
 create or replace function second_udf()
   returns float
   as '3.11::FLOAT';  
+
+USE SCHEMA REP_VIEW;
+
+CREATE TABLE Test
+(
+FIRST_NAME VARCHAR,
+LAST_NAME VARCHAR
+);
