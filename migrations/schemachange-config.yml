@@ -15,3 +15,4 @@ env:
           fi
 vars:
   warehouse_name: {{env_var('DEV_ENV_WH')}}
+  
