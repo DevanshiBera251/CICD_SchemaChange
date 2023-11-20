@@ -1,21 +1,17 @@
 config-version: 1
 root-folder: Migrations
 
-variables: 
- DEV: "LOAD_DIMENSION_WH_XS"
- QA: "LOAD_DIMENSION_WH_XS"
- PROD: "LOAD_DIMENSION_WH_XS"
-
 env:
-    SF_DEV_DB: ""
+    DEV_ENV_WH: ""
     steps:
       name:
         run:
           if [ "${GITHUB_REF}" == "refs/heads/DEV" ]; then
-            export SF_DEV_DB = DEV
+            export DEV_ENV_WH ="LOAD_DIMENSION_WH_XS"
           elif [ "${GITHUB_REF}" == "refs/heads/QA" ]; then
-            export SF_DEV_DB = QA
+            export DEV_ENV_WH ="LOAD_DIMENSION_WH_XS"
           elif [ "${GITHUB_REF}" == "refs/heads/PROD" ]; then
-            export SF_DEV_DB = PROD
+            export DEV_ENV_WH ="AMBYINT_DEVOPS_WH_XS"
+          fi
 vars:
-  warehouse_name: {{env_var('SF_DEV_DB')}}
+  warehouse_name: {{env_var('DEV_ENV_WH')}}
