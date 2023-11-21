@@ -1,8 +1,9 @@
-USE SCHEMA PUBLIC;
+USE SCHEMA REP_VIEW;
 
---CREATE or replace view PLATFORM_EVENT_FACT_V_VIEW as select * from Hello_world;
---CREATE or replace view PLATFORM_EVENT_FACT_V_VIEW_NEW as select * from Hello_world;
+CREATE OR REPLACE DYNAMIC TABLE TESTT
+LAG = '1 minute'
+WAREHOUSE = {{warehouse_name}}
+AS
+SELECT * FROM PUBLIC.Hello_world;
 
-create or replace function second_udf()
-  returns float
-  as '3.11::FLOAT';  
+
