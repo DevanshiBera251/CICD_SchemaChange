@@ -33,6 +33,7 @@ jobs:
           SF_WAREHOUSE: ${{ secrets.SF_WAREHOUSE }}
           SF_DATABASE: ${{ secrets.SF_DEV }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
+          ENV_WH: ${{secrets.DEV_ENV_WH}}
           
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
