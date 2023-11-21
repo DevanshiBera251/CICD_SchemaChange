@@ -2,17 +2,17 @@ config-version: 1
 root-folder: Migrations
 
 env:
-    DEV_ENV_WH: ""
+    DEV_ENV_W: ""
     steps:
       name:
         run:
           if [ "${GITHUB_REF}" == "refs/heads/DEV" ]; then
-            export DEV_ENV_WH ="LOAD_DIMENSION_WH_XS"
+            export DEV_ENV_W ="LOAD_DIMENSION_WH_XS"
           elif [ "${GITHUB_REF}" == "refs/heads/QA" ]; then
-            export DEV_ENV_WH ="LOAD_DIMENSION_WH_XS"
+            export DEV_ENV_W ="LOAD_DIMENSION_WH_XS"
           elif [ "${GITHUB_REF}" == "refs/heads/PROD" ]; then
-            export DEV_ENV_WH ="AMBYINT_DEVOPS_WH_XS"
+            export DEV_ENV_W ="AMBYINT_DEVOPS_WH_XS"
           fi
 vars:
-  warehouse_name: {{env_var('DEV_ENV_WH')}}
+  warehouse_name: {{env_var('DEV_ENV_W')}}
   
