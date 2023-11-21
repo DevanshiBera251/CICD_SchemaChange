@@ -6,3 +6,4 @@ WAREHOUSE = {{warehouse_name}}
 AS
 SELECT * FROM Hello_world;
 
+
