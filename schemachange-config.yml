@@ -3,4 +3,7 @@ root-folder: Migrations
 
 vars:
   warehouse_name: {{env_var('ENV_WH')}}
+  tab1: {{env_var('table1')}}
+
+
   
