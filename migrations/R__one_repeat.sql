@@ -13,3 +13,5 @@ WAREHOUSE = {{warehouse_name}}
 AS
 SELECT * FROM PUBLIC.Hello_world;
 
+
+
