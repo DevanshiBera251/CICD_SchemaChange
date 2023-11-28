@@ -5,19 +5,5 @@ vars:
   warehouse_name: {{env_var('ENV_WH')}}
   tab1: {{env_var('table1')}}
 
-env:
-  table1: 
-  table2: 
-  run: |
-      if [ "$GITHUB_REF" = "refs/heads/DEV" ]; then
-        table1: tbl_123_wells
-        table2: tbl_234_wells
-      elif [ "$GITHUB_REF" = "refs/heads/QA" ]; then
-        table1: tbl_123_well
-        table2: tbl_234_well
-      else
-        table1: tbl_123_wel
-        table2: tbl_234_wel
-      fi
-  
+
   
