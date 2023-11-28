@@ -8,7 +8,7 @@ SELECT * FROM PUBLIC.Hello_world;
 
 
 CREATE OR REPLACE DYNAMIC TABLE {{tab1}}
-LAG = '2 minute'
+LAG = '25 minute'
 WAREHOUSE = {{warehouse_name}}
 AS
 SELECT * FROM PUBLIC.Hello_world;

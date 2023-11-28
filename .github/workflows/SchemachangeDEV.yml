@@ -20,11 +20,11 @@ jobs:
       - name: variables
         run: |
           if [ "$GITHUB_REF" = "refs/heads/DEV" ]; then
-            table1="tbl_123_wells"
+            set table1="tbl_123_wells"
           elif [ "$GITHUB_REF" = "refs/heads/QA" ]; then
-            table1="tbl_wells"
+            set table1="tbl_wells"
           else
-            table1="tbl_3_wells"
+            set table1="tbl_3_wells"
           fi
   
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
