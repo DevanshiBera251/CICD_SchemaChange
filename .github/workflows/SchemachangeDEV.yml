@@ -14,7 +14,9 @@ on:
 jobs:              
     deploy-snowflake-changes-job-DEV:
       runs-on: ubuntu-latest
-    
+      env:
+          table1: ${{ github.event_name == 'push' && contains(github.ref, 'refs/heads/') && github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/DEV' && github.ref != 'refs/heads/QA' && format('{0}', github.ref) || '' }}
+        
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
@@ -25,8 +27,6 @@ jobs:
         with:
           python-version: 3.8.x
       - name: variables
-        env:
-          table1: ${{ github.event_name == 'push' && contains(github.ref, 'refs/heads/') && github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/DEV' && github.ref != 'refs/heads/QA' && format('{0}', github.ref) || '' }}
         run: |
           if [ "$GITHUB_REF" = "refs/heads/DEV" ]; then
             export table1="tbl_123_wells"
