@@ -15,7 +15,7 @@ jobs:
     deploy-snowflake-changes-job-DEV:
       runs-on: ubuntu-latest
       env:
-          table1: 123
+          table1: tablename
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
