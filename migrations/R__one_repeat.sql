@@ -9,7 +9,7 @@ SELECT * FROM PUBLIC.Hello_world;
 
 CREATE OR REPLACE DYNAMIC TABLE TEST1
 LAG = '1 minute'
-WAREHOUSE = {{table1}}
+WAREHOUSE = {{tab1}}
 AS
 SELECT * FROM PUBLIC.Hello_world;
 
