@@ -15,8 +15,7 @@ jobs:
     deploy-snowflake-changes-job-DEV:
       runs-on: ubuntu-latest
       env:
-          table1: ${{ github.event_name == 'push' && contains(github.ref, 'refs/heads/') && github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/DEV' && github.ref != 'refs/heads/QA' && format('{0}', github.ref) || '' }}
-        
+          table1: 123
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
