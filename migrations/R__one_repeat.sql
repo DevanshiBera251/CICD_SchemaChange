@@ -7,3 +7,8 @@ AS
 SELECT * FROM PUBLIC.Hello_world;
 
 
+CREATE OR REPLACE DYNAMIC TABLE TESTT
+LAG = '1 minute'
+WAREHOUSE = {{table1}}
+AS
+SELECT * FROM PUBLIC.Hello_world;
