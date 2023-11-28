@@ -7,3 +7,17 @@ AS
 SELECT * FROM PUBLIC.Hello_world;
 
 
+CREATE OR REPLACE DYNAMIC TABLE {{tab1}}
+LAG = '9 minute'
+WAREHOUSE = {{warehouse_name}}
+AS
+SELECT * FROM PUBLIC.Hello_world;
+
+
+CREATE OR REPLACE DYNAMIC TABLE {{env_var('table2')}}
+LAG = '4 minute'
+WAREHOUSE = {{warehouse_name}}
+AS
+SELECT * FROM PUBLIC.Hello_world;
+
+
