@@ -29,11 +29,11 @@ jobs:
           table1: ${{ github.event_name == 'push' && contains(github.ref, 'refs/heads/') && github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/DEV' && github.ref != 'refs/heads/QA' && format('{0}', github.ref) || '' }}
         run: |
           if [ "$GITHUB_REF" = "refs/heads/DEV" ]; then
-            export table1: "tbl_123_wells"
+            export table1="tbl_123_wells"
           elif [ "$GITHUB_REF" = "refs/heads/QA" ]; then
-            export table1: "tbl_wells"
+            export table1="tbl_wells"
           else
-            export table1: "tbl_3_wells"
+            export table1="tbl_3_wells"
           fi
   
       - name: Run schemachange
