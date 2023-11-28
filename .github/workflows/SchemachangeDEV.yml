@@ -20,7 +20,7 @@ jobs:
       - name: variables
         run: |
           if [ "$GITHUB_REF" = "refs/heads/DEV" ]; then
-            $table1="tbl_123_wells"
+            set $table1="tbl_123_wells"
           elif [ "$GITHUB_REF" = "refs/heads/QA" ]; then
             set table1="tbl_wells"
           else
