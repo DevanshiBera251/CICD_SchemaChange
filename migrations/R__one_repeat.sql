@@ -14,4 +14,3 @@ AS
 SELECT * FROM PUBLIC.Hello_world;
 
 
-
