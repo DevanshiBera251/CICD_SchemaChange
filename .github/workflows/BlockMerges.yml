@@ -5,7 +5,7 @@
          - 'QA'
     
  jobs:
-     check:
+     block-merging:
        runs-on: ubuntu-latest
        steps:
        - name: Checkout code
