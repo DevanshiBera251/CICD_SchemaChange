@@ -14,7 +14,7 @@
        - name: Block feature branch merges
          run: |
            TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
-           SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")}
+           SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
            if [ "$TARGET_BRANCH" = "QA" ]; then
             if [ "$SOURCE_BRANCH" != "DEV" ]; then
               echo "Merging from DEV branch is only allowed."
@@ -24,8 +24,11 @@
            elif [ "$TARGET_BRANCH" = "PROD" ]; then
             if [ "$SOURCE_BRANCH" != "QA" ]; then
               echo "Merging from QA branch is only allowed."
+              echo "$TARGET_BRANCH,$SOURCE_BRANCH"
               exit 1
             fi
+           else
+              echo "Source branch is allowed for merge."
            fi
       
             
