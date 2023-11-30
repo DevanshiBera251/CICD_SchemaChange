@@ -15,14 +15,17 @@
          run: |
            TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
            SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")}
-           if [ "$TARGET_BRANCH" = "QA" AND "$SOURCE_BRANCH" != "DEV" ]; then
-              echo "Merging to QA from DEV branch is only allowed."
-              echo "$TARGET_BRANCH, $SOURCE_BRANCH"
+           if [ "$TARGET_BRANCH" = "QA" ]; then
+            if [ "$SOURCE_BRANCH" != "DEV" ]; then
+              echo "Merging from DEV branch is only allowed."
+              echo "$TARGET_BRANCH,$SOURCE_BRANCH"
               exit 1
-           fi
-           if [ "$TARGET_BRANCH" = "PROD" AND "$SOURCE_BRANCH" != "QA" ]; then
-              echo "Merging to PROD from QA branch is only allowed."
-              echo "$TARGET_BRANCH, $SOURCE_BRANCH"
+            fi
+           elif [ "$TARGET_BRANCH" = "PROD" ]; then
+            if [ "$SOURCE_BRANCH" != "QA" ]; then
+              echo "Merging from QA branch is only allowed."
               exit 1
+            fi
            fi
+      
             
