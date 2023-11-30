@@ -13,11 +13,12 @@
          uses: actions/checkout@v2
        - name: Block feature branch merges
          run: |
-           TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
-           SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
+           TARGET_BRANCH=${{ github.base_ref }}
+           SOURCE_BRANCH=${{ github.head_ref }}
            if [ "$TARGET_BRANCH" = "QA" ]; then
             if [ "$SOURCE_BRANCH" != "DEV" ]; then
               echo "Merging from DEV branch is only allowed."
+              echo "$TARGET_BRANCH,$SOURCE_BRANCH"
               exit 1
             fi
            elseif [ "$TARGET_BRANCH" = "PROD" ]; then
