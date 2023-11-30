@@ -3,6 +3,7 @@
      pull_request:
        branches:
          - 'QA'
+         - 'PROD'
     
  jobs:
      block-merging:
@@ -12,8 +13,17 @@
          uses: actions/checkout@v2
        - name: Block feature branch merges
          run: |
+           TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
            SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
-           if [ "$SOURCE_BRANCH" != "DEV" ]; then
-             echo "Merging from DEV branch is ONLY allowed."
-             exit 1
+           if [ "$TARGET_BRANCH" = "QA" ]; then
+            if [ "$SOURCE_BRANCH" != "DEV" ]; then
+              echo "Merging from DEV branch is only allowed."
+              exit 1
+            fi
+           elseif [ "$TARGET_BRANCH" = "PROD" ]; then
+            if [ "$SOURCE_BRANCH" != "QA" ]; then
+              echo "Merging from QA branch is only allowed."
+              exit 1
+            fi
            fi
+            
