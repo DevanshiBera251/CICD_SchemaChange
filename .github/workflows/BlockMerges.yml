@@ -20,7 +20,7 @@
               echo "Merging to QA from DEV branch is only allowed."
               echo "$TARGET_BRANCH, $SOURCE_BRANCH"
               exit 1
-           elif [ "$TARGET_BRANCH" = "PROD" AND "$SOURCE_BRANCH" != "QA" ]; then
+           elif [ "$TARGET_BRANCH" = "PROD" && "$SOURCE_BRANCH" != "QA" ]; then
               echo "Merging to PROD from QA branch is only allowed."
               echo "$TARGET_BRANCH, $SOURCE_BRANCH"
               exit 1
