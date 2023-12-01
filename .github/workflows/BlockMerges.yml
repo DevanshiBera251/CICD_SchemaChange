@@ -4,7 +4,7 @@
        branches:
          - 'QA'
          - 'PROD'
-    
+   
  jobs:
      block-merging:
        runs-on: ubuntu-latest
