@@ -26,6 +26,7 @@
               exit 1
            else
               echo "Source branch is allowed for merge."
+              echo "$TARGET_BRANCH, $SOURCE_BRANCH"
            fi
       
             
