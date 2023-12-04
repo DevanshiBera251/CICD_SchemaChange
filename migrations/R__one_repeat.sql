@@ -1,7 +1,7 @@
 USE SCHEMA REP_VIEW;
 
 CREATE OR REPLACE DYNAMIC TABLE TESTT
-LAG = '1 minute'
+LAG = '2 minute'
 WAREHOUSE = {{warehouse_name}}
 AS
 SELECT * FROM PUBLIC.Hello_world;
