@@ -4,9 +4,7 @@ name: snowflake-devops-demo-DEV
 on:
   push:
    branches:
-    - "DEV"
-   types: [closed]  
-   
+    - DEV   
    paths:
       - 'migrations/**'
 
