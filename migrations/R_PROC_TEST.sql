@@ -5,7 +5,7 @@ AS
 $$
 BEGIN
   IF (CURRENT_DATABASE() ='DEV') THEN
-    delete from TEST where ID < 2;
+    delete from DEV.PUBLIC.TEST where ID < 2;
   END IF;
 END;
 $$
