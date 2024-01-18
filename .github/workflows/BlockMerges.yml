@@ -15,7 +15,6 @@
            TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
            SOURCE_BRANCH=$(jq -r '.pull_request.head.ref' "$GITHUB_EVENT_PATH")
             
-         
            if [ "$TARGET_BRANCH" = "PROD" ] && [ "$SOURCE_BRANCH" != "QA" ]; then
               echo "Merging to PROD from QA branch is only allowed."
               echo "$TARGET_BRANCH, $SOURCE_BRANCH"
